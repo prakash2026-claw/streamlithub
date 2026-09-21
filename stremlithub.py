@@ -3,59 +3,25 @@ import streamlit as st
 # 1. Page Configuration
 st.set_page_config(page_title="Streamlit App Portfolio", layout="wide")
 
-# ⚡ THE VISUAL OVERHAUL: Dark Sidebar + Bright Glowing Navigation Blocks
+# 🎨 LIGHT SIDEBAR TINT: Clean separation without distraction
+# Choose one color below. Currently using a very soft, professional ice-blue/grey (#F0F4F8).
+# Alternative ideas: Soft green (#F0FDFC) or warm cream (#FDFBF7)
 st.markdown("""
     <style>
-    /* 1. FORCE DARK BACKGROUND FOR THE ENTIRE SIDEBAR CONTAINER */
     [data-testid="stSidebar"] {
-        background-color: #1E293B !important; /* Deep charcoal navy blue */
-    }
-    
-    /* 2. FORCE TEXT INSIDE SIDEBAR TO BE CLEAN WHITE (FOR CONTRAST) */
-    [data-testid="stSidebar"] *, [data-testid="stSidebar"] label {
-        color: #FFFFFF !important;
-    }
-    
-    /* 3. TRANSFORM RADIO LAYOUT INTO LARGE EXCLUSIVE CLICKABLE BLOCKS */
-    div[data-testid="stRadio"] div[role="radiogroup"] > label {
-        background-color: #334155 !important; /* Dark slate grey blocks */
-        border: 2px solid #475569 !important; /* Clear frame lines */
-        border-radius: 10px !important;       /* Clean rounded edges */
-        padding: 14px 18px !important;        /* Large padding for an easy click target */
-        margin-bottom: 12px !important;       /* Space between buttons */
-        width: 100% !important;               /* Span across sidebar layout widths */
-        cursor: pointer !important;
-        transition: all 0.25s ease-in-out !important;
-    }
-    
-    /* 4. HOVER INTERACTION STYLING */
-    div[data-testid="stRadio"] div[role="radiogroup"] > label:hover {
-        background-color: #475569 !important; /* Lighter slate on hover */
-        border-color: #60A5FA !important;     /* Bright blue glowing border */
-    }
-    
-    /* 5. DYNAMIC STATE: SELECTED BLOCK POP-OUT */
-    div[data-testid="stRadio"] div[role="radiogroup"] > label[data-checked="true"] {
-        background-color: #2563EB !important; /* Vivid Premium Blue fills the box */
-        border-color: #3B82F6 !important;     /* High-luminance accent borders */
-        font-weight: 700 !important;          /* Strong text callout */
-        box-shadow: 0px 4px 12px rgba(37, 99, 235, 0.3) !important; /* Outer glow drop shadow */
-    }
-    
-    /* HIDE THE DEFAULT TINY STREAMLIT RADIO CIRCLE ICONS TO PREVENT CLUTTER */
-    div[data-testid="stRadio"] div[role="radiogroup"] > label div:first-child {
-        display: none !important;
+        background-color: #F0F4F8 !important; 
+        border-right: 1px solid #E2E8F0 !important;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# 2. Main Page Content Structure
+# 2. Main Page Headers
 st.title("🚀 My Streamlit App Portfolio")
-st.write("Welcome! Use the interactive navigation blocks in the dark sidebar menu to filter through project disciplines.")
+st.write("Welcome! Use the navigation menu in the sidebar to filter through my projects.")
 st.divider()
 
-# 3. Sidebar Radio Setup (The custom CSS rules above target this directly)
-st.sidebar.markdown("### 🎯 Portfolio Tracks")
+# 3. Sidebar Radio Setup (Back to clean, standard look)
+st.sidebar.header("🎯 Navigation Menu")
 
 selected_section = st.sidebar.radio(
     "Choose a domain to view:",
