@@ -3,29 +3,68 @@ import streamlit as st
 # 1. Page Configuration
 st.set_page_config(page_title="Streamlit App Portfolio", layout="wide")
 
+# ⚡ CSS TRICK TO INJECT CUSTOM STYLES (Turns radio buttons into prominent clickable rows)
+st.markdown("""
+    <style>
+    /* Make the container look organized and readable */
+    div[data-testid="stRadio"] > label {
+        font-size: 1.15rem !important;
+        font-weight: bold !important;
+        color: #1F2937 !important;
+        margin-bottom: 12px !important;
+    }
+    
+    /* Transform each option row into a highlighted interactive strip */
+    div[data-testid="stRadio"] div[role="radiogroup"] > label {
+        background-color: #F3F4F6 !important; /* Soft grey background */
+        border: 2px solid #E5E7EB !important; /* Discrete border */
+        border-radius: 8px !important;        /* Rounded corners */
+        padding: 12px 16px !important;         /* Breathing room inside card */
+        margin-bottom: 10px !important;        /* Gap between choices */
+        width: 100% !important;                /* Full sidebar width */
+        cursor: pointer !important;
+        transition: all 0.2s ease-in-out !important;
+    }
+    
+    /* Hover effect: Subtle elevation shift */
+    div[data-testid="stRadio"] div[role="radiogroup"] > label:hover {
+        background-color: #EEF2F6 !important;
+        border-color: #3B82F6 !important;      /* Changes to bright blue border */
+        transform: translateY(-1px);
+    }
+    
+    /* Active selection styling: Pops out to show exactly where the user is */
+    div[data-testid="stRadio"] div[role="radiogroup"] > label[data-checked="true"] {
+        background-color: #EFF6FF !important;  /* Light blue tint */
+        border-color: #2563EB !important;      /* Deep premium blue boundary */
+        font-weight: 600 !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# 2. Main Page Headers
 st.title("🚀 My Streamlit App Portfolio")
-st.write("Welcome! Use the sidebar to switch between categories instantly.")
+st.write("Welcome! Use the interactive navigation blocks in the sidebar to jump between categories instantly.")
 st.divider()
 
-# 2. Sidebar Exclusive Filter (Radio Menu)
+# 3. Sidebar Exclusive Filter (Styled Radio Menu)
 st.sidebar.header("🎯 Navigation Menu")
-st.sidebar.write("Choose a single domain to view:")
 
-# Radio selection forces exactly ONE active view at a time
+# The CSS block above will automatically redesign this widget into beautiful cards
 selected_section = st.sidebar.radio(
-    "Select Domain:",
+    "Choose a domain to explore:",
     options=[
-        "Show All Apps",  # Default landing view
-        "Clustering & Anomaly Detection",
-        "Natural Language Processing (NLP)",
-        "Core Machine Learning Applications"
+        "✨ Show All Apps",
+        "🔍 Clustering & Anomaly Detection",
+        "💬 Natural Language Processing (NLP)",
+        "🤖 Core Machine Learning Applications"
     ]
 )
 
 # ==========================================
 # SECTION 1: Unsupervised Learning & Analytics
 # ==========================================
-if selected_section == "Show All Apps" or selected_section == "Clustering & Anomaly Detection":
+if selected_section == "✨ Show All Apps" or selected_section == "🔍 Clustering & Anomaly Detection":
     st.header("🔍 1. Clustering & Anomaly Detection")
     col1, col2 = st.columns(2)
 
@@ -44,7 +83,7 @@ if selected_section == "Show All Apps" or selected_section == "Clustering & Anom
 # ==========================================
 # SECTION 2: Natural Language Processing (NLP)
 # ==========================================
-if selected_section == "Show All Apps" or selected_section == "Natural Language Processing (NLP)":
+if selected_section == "✨ Show All Apps" or selected_section == "💬 Natural Language Processing (NLP)":
     st.header("💬 2. Natural Language Processing (NLP)")
     col3, col4, col5 = st.columns(3)
 
@@ -68,7 +107,7 @@ if selected_section == "Show All Apps" or selected_section == "Natural Language 
 # ==========================================
 # SECTION 3: Standard Machine Learning
 # ==========================================
-if selected_section == "Show All Apps" or selected_section == "Core Machine Learning Applications":
+if selected_section == "✨ Show All Apps" or selected_section == "🤖 Core Machine Learning Applications":
     st.header("🤖 3. Core Machine Learning Applications")
     col6, col7, col8 = st.columns(3)
 
