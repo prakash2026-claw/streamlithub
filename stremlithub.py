@@ -90,8 +90,8 @@ if selected_section == "✨ Show All Apps" or selected_section == "🤖 Core Mac
 
     with col7:
         st.subheader("📉 Regression")
-        st.write("Predict numbers and continuous trends (e.g., Sales, Pricing forecast).")
-        st.link_button("Open Regression App", "https://streamlit.app")
+        st.write("Bank Operational Cost per month.")
+        st.link_button("Open Regression App", "https://kaggle-models-pjf6kck2czs57f2t5be2ah.streamlit.app/")
 
     with col8:
         st.subheader("⚡ Classification + Regression")
