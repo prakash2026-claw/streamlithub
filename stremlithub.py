@@ -92,7 +92,7 @@ if selected_section == "✨ Show All Apps" or selected_section == "🤖 Core Mac
         st.subheader("📉 Regression")
         st.write("Predict numbers and continuous trends (e.g., Sales, Pricing forecast).")
         st.link_button("Open 'Bank Operational Cost per month' App", "https://kaggle-models-pjf6kck2czs57f2t5be2ah.streamlit.app/")
-        st.link_button("Open 'Predict Satellite Position' App", "https://kaggle-models-bapvvp2bzan7vqzhfdbbvj.streamlit.app/")
+        st.link_button("Open 'Predict Satellite Position' App", "https://interactive-kaggle-models-2w8lgffwwyalwvkcb4egsg.streamlit.app/")
 
     with col8:
         st.subheader("⚡ Classification + Regression")
