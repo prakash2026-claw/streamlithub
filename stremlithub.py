@@ -3,56 +3,62 @@ import streamlit as st
 # 1. Page Configuration
 st.set_page_config(page_title="Streamlit App Portfolio", layout="wide")
 
-# ⚡ CSS TRICK TO INJECT CUSTOM STYLES (Turns radio buttons into prominent clickable rows)
+# ⚡ THE VISUAL OVERHAUL: Dark Sidebar + Bright Glowing Navigation Blocks
 st.markdown("""
     <style>
-    /* Make the container look organized and readable */
-    div[data-testid="stRadio"] > label {
-        font-size: 1.15rem !important;
-        font-weight: bold !important;
-        color: #1F2937 !important;
-        margin-bottom: 12px !important;
+    /* 1. FORCE DARK BACKGROUND FOR THE ENTIRE SIDEBAR CONTAINER */
+    [data-testid="stSidebar"] {
+        background-color: #1E293B !important; /* Deep charcoal navy blue */
     }
     
-    /* Transform each option row into a highlighted interactive strip */
+    /* 2. FORCE TEXT INSIDE SIDEBAR TO BE CLEAN WHITE (FOR CONTRAST) */
+    [data-testid="stSidebar"] *, [data-testid="stSidebar"] label {
+        color: #FFFFFF !important;
+    }
+    
+    /* 3. TRANSFORM RADIO LAYOUT INTO LARGE EXCLUSIVE CLICKABLE BLOCKS */
     div[data-testid="stRadio"] div[role="radiogroup"] > label {
-        background-color: #F3F4F6 !important; /* Soft grey background */
-        border: 2px solid #E5E7EB !important; /* Discrete border */
-        border-radius: 8px !important;        /* Rounded corners */
-        padding: 12px 16px !important;         /* Breathing room inside card */
-        margin-bottom: 10px !important;        /* Gap between choices */
-        width: 100% !important;                /* Full sidebar width */
+        background-color: #334155 !important; /* Dark slate grey blocks */
+        border: 2px solid #475569 !important; /* Clear frame lines */
+        border-radius: 10px !important;       /* Clean rounded edges */
+        padding: 14px 18px !important;        /* Large padding for an easy click target */
+        margin-bottom: 12px !important;       /* Space between buttons */
+        width: 100% !important;               /* Span across sidebar layout widths */
         cursor: pointer !important;
-        transition: all 0.2s ease-in-out !important;
+        transition: all 0.25s ease-in-out !important;
     }
     
-    /* Hover effect: Subtle elevation shift */
+    /* 4. HOVER INTERACTION STYLING */
     div[data-testid="stRadio"] div[role="radiogroup"] > label:hover {
-        background-color: #EEF2F6 !important;
-        border-color: #3B82F6 !important;      /* Changes to bright blue border */
-        transform: translateY(-1px);
+        background-color: #475569 !important; /* Lighter slate on hover */
+        border-color: #60A5FA !important;     /* Bright blue glowing border */
     }
     
-    /* Active selection styling: Pops out to show exactly where the user is */
+    /* 5. DYNAMIC STATE: SELECTED BLOCK POP-OUT */
     div[data-testid="stRadio"] div[role="radiogroup"] > label[data-checked="true"] {
-        background-color: #EFF6FF !important;  /* Light blue tint */
-        border-color: #2563EB !important;      /* Deep premium blue boundary */
-        font-weight: 600 !important;
+        background-color: #2563EB !important; /* Vivid Premium Blue fills the box */
+        border-color: #3B82F6 !important;     /* High-luminance accent borders */
+        font-weight: 700 !important;          /* Strong text callout */
+        box-shadow: 0px 4px 12px rgba(37, 99, 235, 0.3) !important; /* Outer glow drop shadow */
+    }
+    
+    /* HIDE THE DEFAULT TINY STREAMLIT RADIO CIRCLE ICONS TO PREVENT CLUTTER */
+    div[data-testid="stRadio"] div[role="radiogroup"] > label div:first-child {
+        display: none !important;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# 2. Main Page Headers
+# 2. Main Page Content Structure
 st.title("🚀 My Streamlit App Portfolio")
-st.write("Welcome! Use the interactive navigation blocks in the sidebar to jump between categories instantly.")
+st.write("Welcome! Use the interactive navigation blocks in the dark sidebar menu to filter through project disciplines.")
 st.divider()
 
-# 3. Sidebar Exclusive Filter (Styled Radio Menu)
-st.sidebar.header("🎯 Navigation Menu")
+# 3. Sidebar Radio Setup (The custom CSS rules above target this directly)
+st.sidebar.markdown("### 🎯 Portfolio Tracks")
 
-# The CSS block above will automatically redesign this widget into beautiful cards
 selected_section = st.sidebar.radio(
-    "Choose a domain to explore:",
+    "Choose a domain to view:",
     options=[
         "✨ Show All Apps",
         "🔍 Clustering & Anomaly Detection",
