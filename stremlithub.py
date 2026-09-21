@@ -62,7 +62,7 @@ with col6:
 with col7:
     st.subheader("📉 Regression")
     st.write("Predict numbers and continuous trends (e.g., Sales, Pricing forecast).")
-    st.link_button("Open Regression App", "https://your-regression-app.streamlit.app/")
+    st.link_button("Open Regression App", "https://kaggle-models-a3vmespwdbjyhqxxoavuvb.streamlit.app/")
 
 with col8:
     st.subheader("⚡ Classification + Regression")
