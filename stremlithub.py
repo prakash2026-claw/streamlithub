@@ -4,35 +4,28 @@ import streamlit as st
 st.set_page_config(page_title="Streamlit App Portfolio", layout="wide")
 
 st.title("🚀 My Streamlit App Portfolio")
-st.write("Welcome! Use the sidebar to filter categories, or click any link below to open an app instantly.")
+st.write("Welcome! Use the sidebar to switch between categories instantly.")
 st.divider()
 
-# 2. Sidebar Filter Configuration
-st.sidebar.header("🎯 Portfolio Filters")
-st.sidebar.write("Select the domains you want to view:")
+# 2. Sidebar Exclusive Filter (Radio Menu)
+st.sidebar.header("🎯 Navigation Menu")
+st.sidebar.write("Choose a single domain to view:")
 
-# Available categories mapped to their sections
-available_sections = [
-    "Clustering & Anomaly Detection",
-    "Natural Language Processing (NLP)",
-    "Core Machine Learning Applications"
-]
-
-# Multi-select widget in sidebar
-selected_sections = st.sidebar.multiselect(
-    "Filter by Domain:",
-    options=available_sections,
-    default=available_sections # Displays all by default
+# Radio selection forces exactly ONE active view at a time
+selected_section = st.sidebar.radio(
+    "Select Domain:",
+    options=[
+        "Show All Apps",  # Default landing view
+        "Clustering & Anomaly Detection",
+        "Natural Language Processing (NLP)",
+        "Core Machine Learning Applications"
+    ]
 )
-
-# Fallback in case the user clears all checkboxes
-if not selected_sections:
-    st.info("💡 Please select at least one domain in the sidebar to view apps.")
 
 # ==========================================
 # SECTION 1: Unsupervised Learning & Analytics
 # ==========================================
-if "Clustering & Anomaly Detection" in selected_sections:
+if selected_section == "Show All Apps" or selected_section == "Clustering & Anomaly Detection":
     st.header("🔍 1. Clustering & Anomaly Detection")
     col1, col2 = st.columns(2)
 
@@ -51,7 +44,7 @@ if "Clustering & Anomaly Detection" in selected_sections:
 # ==========================================
 # SECTION 2: Natural Language Processing (NLP)
 # ==========================================
-if "Natural Language Processing (NLP)" in selected_sections:
+if selected_section == "Show All Apps" or selected_section == "Natural Language Processing (NLP)":
     st.header("💬 2. Natural Language Processing (NLP)")
     col3, col4, col5 = st.columns(3)
 
@@ -75,7 +68,7 @@ if "Natural Language Processing (NLP)" in selected_sections:
 # ==========================================
 # SECTION 3: Standard Machine Learning
 # ==========================================
-if "Core Machine Learning Applications" in selected_sections:
+if selected_section == "Show All Apps" or selected_section == "Core Machine Learning Applications":
     st.header("🤖 3. Core Machine Learning Applications")
     col6, col7, col8 = st.columns(3)
 
@@ -87,7 +80,7 @@ if "Core Machine Learning Applications" in selected_sections:
     with col7:
         st.subheader("📉 Regression")
         st.write("Predict numbers and continuous trends (e.g., Sales, Pricing forecast).")
-        st.link_button("Open Regression App", "https://kaggle-models-a3vmespwdbjyhqxxoavuvb.streamlit.app/")
+        st.link_button("Open Regression App", "https://streamlit.app")
 
     with col8:
         st.subheader("⚡ Classification + Regression")
