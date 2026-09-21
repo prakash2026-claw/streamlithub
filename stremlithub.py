@@ -85,13 +85,14 @@ if selected_section == "✨ Show All Apps" or selected_section == "🤖 Core Mac
 
     with col6:
         st.subheader("🎯 Classification")
-        st.write("Predict distinct categories and labels (e.g., Churn, Default prediction).")
-        st.link_button("Open Classification App", "https://streamlit.app")
+        st.write("Predict distinct categories and labels (e.g., Churn,Risk, Default prediction).")
+        st.link_button("Open Metabolic Risk App", "https://metabolic-risk-prediction-x4h7gs5mbur39jzxsuyvue.streamlit.app/")
 
     with col7:
         st.subheader("📉 Regression")
         st.write("Predict numbers and continuous trends (e.g., Sales, Pricing forecast).")
         st.link_button("Open 'Bank Operational Cost per month' App", "https://kaggle-models-pjf6kck2czs57f2t5be2ah.streamlit.app/")
+        st.link_button("Open 'Predict Satellite Position' App", "https://kaggle-models-bapvvp2bzan7vqzhfdbbvj.streamlit.app/")
 
     with col8:
         st.subheader("⚡ Classification + Regression")
