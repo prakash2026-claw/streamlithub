@@ -86,7 +86,10 @@ if selected_section == "✨ Show All Apps" or selected_section == "🤖 Core Mac
     with col6:
         st.subheader("🎯 Classification")
         st.write("Predict distinct categories and labels (e.g., Churn,Risk, Default prediction).")
-        st.link_button("Open Metabolic Risk App", "https://metabolic-risk-prediction-x4h7gs5mbur39jzxsuyvue.streamlit.app/")
+        #st.link_button("Open Metabolic Risk App", "https://metabolic-risk-prediction-x4h7gs5mbur39jzxsuyvue.streamlit.app/")
+        st.write("[Predict Metabolic Ris of a Person](https://metabolic-risk-prediction-x4h7gs5mbur39jzxsuyvue.streamlit.app/)")
+        st.write("[Predict Insurance Cross Selling](https://interactive-kaggle-model-eptw3t5d59mzbazywvzeqk.streamlit.app/)")
+
 
     with col7:
         st.subheader("📉 Regression")
