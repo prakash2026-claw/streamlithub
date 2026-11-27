@@ -62,7 +62,7 @@ if selected_section == "✨ Show All Apps" or selected_section == "💬 Natural 
     with col3:
         st.subheader("🏷️ NLP (Classification)")
         st.write("Text analysis tasks like sentiment detection or spam filtering.")
-        st.link_button("Open NLP Classification", "https://streamlit.app")
+        st.write("[Predict Item Category From Description(Russian Lanuguage)](https://nlpmodels-fixbdrlivnwktov2fz9lht.streamlit.app/)")
 
     with col4:
         st.subheader("📈 NLP (Regression)")
